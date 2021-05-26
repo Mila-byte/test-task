@@ -1,28 +1,30 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <component @change-route="changeRoute" :is="currentComponent"></component>/
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import LogInPage from "./views/LogInPage.vue"
+import OrderPage from "./views/OrderPage.vue"
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
+    LogInPage,
+    OrderPage
+  },
+  data() {
+    return {
+      currentComponent: "LogInPage",
+    }
+  },
+  methods: {
+    changeRoute(route) {
+      this.currentComponent = route
+    },
+  },
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>
