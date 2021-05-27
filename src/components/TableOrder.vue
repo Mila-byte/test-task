@@ -1,56 +1,50 @@
 <template>
   <div class="table-order">
+    <TableHeader :tableHeaders="tableHeaders" />
     <TableRow
-      :activeOrderId="activeOrderId"
-      :class="{ activeOrder: activeOrderId === item.id }"
+      v-for="tableRow of tableContent"
+      :key="tableRow.id"
+      :tableHeaders="tableHeaders"
+      :activeOrder="activeOrderId === tableRow.id"
+      :tableRow="tableRow"
       @active-order="setActiveOrder"
-      v-for="item of tableData"
-      :key="item.id"
-      :items="item"
     />
   </div>
 </template>
 
 <script>
+import { tableHeaders, tableContent } from '@/test-data'
+
 export default {
-  name: "TableOrder",
+  name: 'TableOrder',
   components: {
-    TableRow: () => import("@/components/BasicElements/TableRow.vue"),
+    TableHeader: () => import('@/components/BasicElements/TableHeader'),
+    TableRow: () => import('@/components/BasicElements/TableRow.vue')
   },
   data() {
     return {
-      tableData: [
-        {
-          id: 1,
-          name: "first",
-          order: 23456,
-        },
-        {
-          id: 2,
-          name: "second",
-          order: 3383838,
-        },
-      ],
-      activeOrderId: null,
+      tableContent,
+      tableHeaders,
+      activeOrderId: null
     }
   },
   methods: {
     setActiveOrder(id) {
       this.activeOrderId = id
-    },
-  },
+    }
+  }
 }
 </script>
 
 <style lang="scss">
 .table-order {
+  width: 80%;
   display: flex;
   flex-direction: column;
-  .activeOrder {
-    .table-row {
-      background: #ff7728;
-      color: #fff;
-    }
+  border-top: 3px solid #fff;
+  margin-top: 26px;
+  @media screen and (max-width: 768px) {
+    width: 329px;
   }
 }
 </style>

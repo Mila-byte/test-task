@@ -1,27 +1,24 @@
 <template>
   <main-layout>
     <div class="content">
+      <main-layout-header routerPage="order" style="width: 80%" />
+      <SearchRow />
       <TableOrder />
     </div>
-    <h2>hello</h2>
   </main-layout>
 </template>
 
 <script>
+import SearchRow from '@/components/SearchRow'
+import MainLayoutHeader from '../components/MainLayoutHeader.vue'
 export default {
-  name: "OrderPage",
+  name: 'OrderPage',
   components: {
+    SearchRow,
     MainLayout: () => import('@/components/MainLayout.vue'),
-    TableOrder: () => import('@/components/TableOrder.vue')
+    TableOrder: () => import('@/components/TableOrder.vue'),
+    MainLayoutHeader
   }
 }
 </script>
 
-<style>
-.content {
-  width: 1100px;
-  padding: 12px;
-  display: flex;
-  justify-content: center;
-}
-</style>

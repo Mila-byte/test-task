@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <component @change-route="changeRoute" :is="currentComponent"></component>/
-  </div>
+  <component @change-route="changeRoute" :is="currentComponent"></component>
 </template>
 
 <script>
@@ -12,7 +10,7 @@ export default {
   name: "App",
   components: {
     LogInPage,
-    OrderPage
+    OrderPage,
   },
   data() {
     return {

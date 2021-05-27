@@ -1,52 +1,51 @@
 <template>
   <main-layout showSubHeader>
-    <p class="title">
-      <span style='direction: rtl;'>ריחמה תעצהב היפצ - תכרעמל הסינכ</span>
-      <img src="../assets/user.png" alt="user" />
-    </p>
-
-    <p dir="rtl">שבת — суббота</p>
+    <main-layout-header />
     <p class="subtitle">
-      שדח דוק תחילש לע ץחל דוק תלביק אל םא ,הסינכה דוק תא ןזה
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, iure?
     </p>
-    <BasicInput title="שמתשמ םש" clearBtn />
-    <BasicInput title="אמסיס" />
+    <BasicInput title="lorem" clearBtn />
+    <BasicInput title="lorem" />
     <div class="buttons">
-      <BasicButton backBtn titleBtn="אמסיס" />
+      <BasicButton backBtn titleBtn="lorem" class="login-btn" />
       <BasicButton
-        @click-btn="$emit('change-route', 'OrderPage')"
+        class="login-btn"
         colorClass="green"
-        titleBtn="אמסיס"
+        titleBtn="lorem"
+        @click-btn="$emit('change-route', 'OrderPage')"
       />
     </div>
   </main-layout>
 </template>
 
 <script>
+import MainLayoutHeader from '../components/MainLayoutHeader.vue'
 export default {
-  name: "LogInPage",
+  name: 'LogInPage',
   components: {
-    BasicInput: () => import("@/components/BasicElements/BasicInput.vue"),
-    MainLayout: () => import("@/components/MainLayout.vue"),
-    BasicButton: () => import("@/components/BasicElements/BasicButton"),
-  },
+    BasicInput: () => import('@/components/BasicElements/BasicInput.vue'),
+    MainLayout: () => import('@/components/MainLayout.vue'),
+    BasicButton: () => import('@/components/BasicElements/BasicButton'),
+    MainLayoutHeader
+  }
 }
 </script>
 
-<style>
+<style lang="scss">
 p {
   color: #fff;
 }
-.title {
-  width: 70%;
-  border-bottom: 5px solid #fff;
-  text-align: right;
-  font-size: 48px;
-}
 .subtitle {
+  text-align: center;
   font-size: 24px;
+  margin-top: 65px;
 }
 .buttons {
   display: flex;
+  .login-btn {
+    margin-top: 80px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }
 </style>

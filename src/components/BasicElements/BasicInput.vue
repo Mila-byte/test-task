@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div>{{ title }}</div>
+  <div class="basic-input__component">
+    <div class="basic-input__text">{{ title }}</div>
     <div class="basic-input">
       <span v-if="clearBtn" class="clear-btn">+</span>
       <input type="text" />
@@ -10,35 +10,56 @@
 
 <script>
 export default {
-  name: "BasicInput",
+  name: 'BasicInput',
   props: {
     clearBtn: {
       type: Boolean,
-      default: false,
+      default: false
     },
     title: {
       type: String,
-      default: "",
-    },
-  },
+      default: ''
+    }
+  }
 }
 </script>
 
 <style lang="scss">
-.basic-input {
-  position: relative;
-  .clear-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 28px;
-    color: aqua;
+.basic-input__component {
+  margin-top: 55px;
+  .basic-input__text {
+    text-align: end;
+    font-size: 24px;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 15px;
+    padding-right: 40px;
   }
-  input {
-    width: 350px;
-    padding: 16px 28px;
-    border-radius: 35px;
-    font-size: 21px;
+  .basic-input {
+    position: relative;
+
+    .clear-btn {
+      position: absolute;
+      top: 14%;
+      left: 20px;
+      font-weight: 900;
+      color: #1d4076;
+      font-size: 42px;
+      transform: rotate(45deg);
+      @media screen and (max-width: 768px) {
+        top: 4%;
+      }
+    }
+    input {
+      width: 250px;
+      padding: 16px 50px;
+      border-radius: 35px;
+      font-size: 21px;
+      @media screen and (max-width: 768px) {
+        width: 230px;
+        padding: 8px 50px;
+      }
+    }
   }
 }
 </style>
