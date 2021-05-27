@@ -33,7 +33,7 @@
       <div
         class="table-item-mobile"
         v-for="(item, name, index) in tableRow"
-        :key="item"
+        :key="`${name}${rowId}`"
       >
         <div class="table-item-mobile_header">{{ tableHeaders[index] }}</div>
         <div class="table-item-mobile_content">{{ item }}</div>
@@ -59,6 +59,10 @@ export default {
     tableHeaders: {
       type: Array,
       default: () => []
+    },
+    rowId: {
+      type: Number,
+      default: 0
     }
   },
   methods: {

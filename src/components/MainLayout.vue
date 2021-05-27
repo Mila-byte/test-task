@@ -44,6 +44,7 @@ export default {
   background-attachment: fixed;
   background-size: cover;
   min-height: 100vh;
+  overflow: auto;
   &::before {
     position: absolute;
     top: 0;

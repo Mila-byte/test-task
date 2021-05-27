@@ -2,8 +2,8 @@
   <div class="table-header">
     <div
       class="table-item"
-      v-for="title of tableHeaders"
-      :key="title"
+      v-for="(title, index) of tableHeaders"
+      :key="index"
     >
       {{ title }}
     </div>

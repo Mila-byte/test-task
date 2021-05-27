@@ -4,6 +4,7 @@
     <TableRow
       v-for="tableRow of tableContent"
       :key="tableRow.id"
+      :row-id="tableRow.id"
       :tableHeaders="tableHeaders"
       :activeOrder="activeOrderId === tableRow.id"
       :tableRow="tableRow"
